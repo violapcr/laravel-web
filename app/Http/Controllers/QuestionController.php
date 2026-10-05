@@ -27,7 +27,11 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-    dd($request->all());
+    return view('home-question-respon', [
+        'nama' => $request->nama,
+        'email' => $request->email,
+        'pertanyaan' => $request->pertanyaan
+    ]);
     }
 
     /**
