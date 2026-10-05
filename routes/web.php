@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
+use App\Http\Controllers\HomeController;
 
 // Halaman utama
 Route::get('/', function () {
@@ -48,3 +49,6 @@ Route::get('/matakuliah/show/{kode?}', function ($kode = null) {
 
 // Resource Controller Matakuliah
 Route::resource('/matakuliah', MatakuliahController::class);
+
+// Route Home Controller
+Route::get('/home', [HomeController::class, 'index']);
