@@ -52,3 +52,5 @@ Route::resource('/matakuliah', MatakuliahController::class);
 
 // Route Home Controller
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::post('/submit', [MahasiswaController::class, 'submit']);

@@ -23,11 +23,11 @@ class MahasiswaController extends Controller
 
     public function show(string $param1)
     {
-    if ($param1 == 'detail') {
-        return view('halaman-mahasiswa');
-    } elseif ($param1 == 'profil') {
-        return view('halaman-mahasiswa-profil');
-    }
+        if ($param1 == 'detail') {
+            return view('halaman-mahasiswa');
+        } elseif ($param1 == 'profil') {
+            return view('halaman-mahasiswa-profil');
+        }
     }
 
     public function edit(string $id)
@@ -43,5 +43,10 @@ class MahasiswaController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function submit(Request $request)
+    {
+        dd($request->all());
     }
 }
