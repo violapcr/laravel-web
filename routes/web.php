@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuestionController;
+
+Route::post('question/store', [QuestionController::class, 'store'])
+    ->name('question.store');
 
 // Halaman utama
 Route::get('/', function () {
@@ -52,5 +56,10 @@ Route::resource('/matakuliah', MatakuliahController::class);
 
 // Route Home Controller
 Route::get('/home', [HomeController::class, 'index']);
+
+// Route Submit Data
+Route::get('/submit', function () {
+    return view('submit');
+});
 
 Route::post('/submit', [MahasiswaController::class, 'submit']);
