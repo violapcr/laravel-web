@@ -27,10 +27,18 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-    $request->validate([
-        'nama' => 'required|max:10',
-        'email' => ['required', 'email'],
-        'pertanyaan' => 'required|max:300|min:8',
+   $request->validate([
+    'nama' => 'required|max:10',
+    'email' => ['required', 'email'],
+    'pertanyaan' => 'required|max:300|min:8',
+    ], [
+    'nama.required' => 'Nama wajib diisi.',
+    'nama.max' => 'Nama maksimal 10 karakter.',
+    'email.required' => 'Email wajib diisi.',
+    'email.email' => 'Format email tidak valid.',
+    'pertanyaan.required' => 'Pertanyaan wajib diisi.',
+    'pertanyaan.max' => 'Pertanyaan maksimal 300 karakter.',
+    'pertanyaan.min' => 'Pertanyaan minimal 8 karakter.',
     ]);
 
     return view('home-question-respon', [
