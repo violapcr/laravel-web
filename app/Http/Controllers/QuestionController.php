@@ -25,28 +25,32 @@ class QuestionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-   $request->validate([
-    'nama' => 'required|max:10',
-    'email' => ['required', 'email'],
-    'pertanyaan' => 'required|max:300|min:8',
+
+
+public function store(Request $request)
+{
+    $request->validate([
+        'nama' => 'required|max:10',
+        'email' => ['required', 'email'],
+        'pertanyaan' => 'required|max:300|min:8',
     ], [
-    'nama.required' => 'Nama wajib diisi.',
-    'nama.max' => 'Nama maksimal 10 karakter.',
-    'email.required' => 'Email wajib diisi.',
-    'email.email' => 'Format email tidak valid.',
-    'pertanyaan.required' => 'Pertanyaan wajib diisi.',
-    'pertanyaan.max' => 'Pertanyaan maksimal 300 karakter.',
-    'pertanyaan.min' => 'Pertanyaan minimal 8 karakter.',
+        'nama.required' => 'Nama wajib diisi.',
+        'nama.max' => 'Nama maksimal 10 karakter.',
+        'email.required' => 'Email wajib diisi.',
+        'email.email' => 'Format email tidak valid.',
+        'pertanyaan.required' => 'Pertanyaan wajib diisi.',
+        'pertanyaan.max' => 'Pertanyaan maksimal 300 karakter.',
+        'pertanyaan.min' => 'Pertanyaan minimal 8 karakter.',
     ]);
 
-    return view('home-question-respon', [
-        'nama' => $request->nama,
-        'email' => $request->email,
-        'pertanyaan' => $request->pertanyaan
-    ]);
-    }
+    $data['nama'] = $request->nama;
+    $data['email'] = $request->email;
+    $data['pertanyaan'] = $request->pertanyaan;
+
+    return redirect()->route('home-question-respon')->with('info','data',$data);
+}
+
+
 
     /**
      * Display the specified resource.

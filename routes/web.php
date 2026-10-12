@@ -5,6 +5,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\DashboardController;
 
 Route::post('question/store', [QuestionController::class, 'store'])
     ->name('question.store');
@@ -63,3 +64,12 @@ Route::get('/submit', function () {
 });
 
 Route::post('/submit', [MahasiswaController::class, 'submit']);
+
+
+Route::get('/home-question-respon', function () {
+    return view('home-question-respon');
+})->name('home-question-respon');
+
+
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard');
