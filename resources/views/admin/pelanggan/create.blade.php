@@ -332,7 +332,7 @@
                                     <!-- Phone -->
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
-                                        <input type="text" id="phone" class="form-control" name="phone" required>
+                                        <input type="text" id="phone" class="form-control" name="phone " required>
                                     </div>
 
                                     <!-- Buttons -->
